@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode (Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #ffffff;
+  --canvas-inset: #f6f8fa;
+  --subtle: #f6f8fa;
+  --line: #d1d9e0;
+  --line-muted: #d8dee4;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --accent: #0969da;
+  --accent-muted: #ddf4ff;
+  --success: #1a7f37;
+  --header-bg: #ffffff;
+}
+
+.dark {
+  --canvas: #0d1117;
+  --canvas-inset: #010409;
+  --subtle: #161b22;
+  --line: #30363d;
+  --line-muted: #21262d;
+  --fg: #e6edf3;
+  --muted: #9198a1;
+  --accent: #4493f8;
+  --accent-muted: #121d2f;
+  --success: #3fb950;
+  --header-bg: #010409;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-canvas-inset: var(--canvas-inset);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-muted: var(--line-muted);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-success: var(--success);
+  --color-header: var(--header-bg);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--canvas-inset);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Smooth theme transition */
+* {
+  transition-property: background-color, border-color;
+  transition-duration: 120ms;
+}
+
+.lvl-0 {
+  background: #ebedf0;
+}
+.lvl-1 {
+  background: #9be9a8;
+}
+.lvl-2 {
+  background: #40c463;
+}
+.lvl-3 {
+  background: #30a14e;
+}
+.lvl-4 {
+  background: #216e39;
+}
+
+.dark .lvl-0 {
+  background: #161b22;
+}
+.dark .lvl-1 {
+  background: #0e4429;
+}
+.dark .lvl-2 {
+  background: #006d32;
+}
+.dark .lvl-3 {
+  background: #26a641;
+}
+.dark .lvl-4 {
+  background: #39d353;
 }
