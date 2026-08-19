@@ -22,7 +22,7 @@ export default function Avatar({
           alt={name}
           fill
           sizes={`${size}px`}
-          className="object-cover object-[72%_68%]"
+          className="object-cover object-[50%_30%]"
           priority
         />
       </div>
